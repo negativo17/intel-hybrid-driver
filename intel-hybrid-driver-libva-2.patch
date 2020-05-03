@@ -1,0 +1,35 @@
+diff -Naur intel-hybrid-driver-1.0.2.old/configure.ac intel-hybrid-driver-1.0.2/configure.ac
+--- intel-hybrid-driver-1.0.2.old/configure.ac	2020-05-03 18:05:14.690343761 +0200
++++ intel-hybrid-driver-1.0.2/configure.ac	2020-05-03 18:05:45.348873274 +0200
+@@ -10,8 +10,7 @@
+ ])
+ 
+ # libva minimum version requirement
+-m4_define([va_api_version], [0.38])
+-m4_define([libva_package_version], [1.6.0])
++m4_define([va_api_version], [1.0.0])
+ 
+ # libdrm minimum version requirement
+ m4_define([libdrm_version], [2.4.45])
+@@ -71,9 +70,6 @@
+ AC_CHECK_LIB([m], [sin])
+ AC_CHECK_FUNCS([log2f])
+ 
+-LIBVA_PACKAGE_VERSION=libva_package_version
+-AC_SUBST(LIBVA_PACKAGE_VERSION)
+-
+ dnl Check for recent enough DRM
+ LIBDRM_VERSION=libdrm_version
+ PKG_CHECK_MODULES([DRM], [libdrm >= $LIBDRM_VERSION])
+diff -Naur intel-hybrid-driver-1.0.2.old/src/media_drv_output_dri.h intel-hybrid-driver-1.0.2/src/media_drv_output_dri.h
+--- intel-hybrid-driver-1.0.2.old/src/media_drv_output_dri.h	2020-05-03 18:05:14.694343830 +0200
++++ intel-hybrid-driver-1.0.2/src/media_drv_output_dri.h	2020-05-03 18:05:50.589963794 +0200
+@@ -30,7 +30,7 @@
+ #define _MEDIA__DRIVER_OUT_DRI_H
+ #include <stdbool.h>
+ #include "media_drv_defines.h"
+-#define LIBVA_X11_NAME "libva-x11.so.1"
++#define LIBVA_X11_NAME "libva-x11.so.2"
+ VOID media_output_dri_terminate (VADriverContextP ctx);
+ BOOL media_output_dri_init (VADriverContextP ctx);
+ 
